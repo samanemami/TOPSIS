@@ -17,9 +17,8 @@ pip install .
 This package takes advantage of the following libraries, which had already imported to the TOPSIS package:
 
 * scipy
-* os
-* pandas
 * numpy
+* pandas
 
 # Keywords
 `TOPSIS`, `MCDM`, `MADM`
