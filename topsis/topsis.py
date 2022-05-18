@@ -52,7 +52,7 @@ class topsis():
         ranks -= 1
         return self.decision_matrix.index[ranks][::-1]
 
-    def distance(self):
+    def rank(self):
         m = self.decision_matrix.shape[0]
         dm, A_w, A_b = self._decision_matrix()
         d_b = np.zeros(m)
@@ -65,10 +65,11 @@ class topsis():
             d_b[i] = np.sqrt(d_b_ @ d_b_)
             d_w[i] = np.sqrt(d_w_ @ d_w_)
             max_, min_ = max(self.criteria), min(self.criteria)
-            if A_w[i] == max_ or A_b[i] == max_:
-                s_w[i] = 1
-            elif A_w[i] == min_ or A_b[i] == min_:
-                s_w[i] = 0
+            for _ in range(A_b.shape[0]):
+                if A_w[_] == max_ or A_b[_] == max_:
+                    s_w[i] = 1
+                elif A_w[_] == min_ or A_b[_] == min_:
+                    s_w[i] = 0
             s_w[i] = d_w[i] / (d_w[i] + d_b[i])
 
         db = self._rank(d_b)
