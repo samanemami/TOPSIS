@@ -1,4 +1,3 @@
-# %%
 import numpy as np
 import pandas as pd
 from scipy.stats import rankdata
@@ -11,9 +10,6 @@ class topsis():
         self.weight = weight
         self.criteria = criteria
         self.impact = impact
-
-    def __call__(self):
-        pass
 
     def _decision_matrix(self):
         n = self.decision_matrix.shape[1]
