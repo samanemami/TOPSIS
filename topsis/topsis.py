@@ -4,7 +4,11 @@ from scipy.stats import rankdata
 
 
 class topsis():
-    def __init__(self, decision_matrix, weight, criteria, impact):
+    def __init__(self,
+                 decision_matrix,
+                 weight,
+                 criteria,
+                 impact):
 
         self.decision_matrix = decision_matrix
         self.weight = weight
@@ -12,10 +16,9 @@ class topsis():
         self.impact = impact
 
     def _decision_matrix(self):
-        n = self.decision_matrix.shape[1]
 
-        if isinstance(self.decision_matrix, pd.DataFrame):
-            decision_matrix = self.decision_matrix.values
+        decision_matrix = self.decision_matrix.values
+        n = decision_matrix.shape[1]
 
         divisors = np.empty(n)
         A_w = np.zeros(n)
@@ -49,17 +52,26 @@ class topsis():
         return self.decision_matrix.index[ranks][::-1]
 
     def rank(self):
+
+        self.__check_params()
+
         m = self.decision_matrix.shape[0]
         dm, A_w, A_b = self._decision_matrix()
         d_b = np.zeros(m)
         d_w = np.zeros(m)
         s_w = np.zeros(m)
 
+        # Compute the distance between the target
+        # in DM and the worst alternative (A_w)
+        # and best alternative (A_b)
+
+        # L2-distance
+        
         for i in range(m):
-            d_b_ = dm[i] - A_b
-            d_w_ = dm[i] - A_w
-            d_b[i] = np.sqrt(d_b_ @ d_b_)
-            d_w[i] = np.sqrt(d_w_ @ d_w_)
+            d_b[i] = np.sqrt((dm[i] - A_b)**2)
+            d_w[i] = np.sqrt((dm[i] - A_w)**2)
+
+            # Compute the similarity to the worst state
             max_, min_ = max(self.criteria), min(self.criteria)
             for _ in range(A_b.shape[0]):
                 if A_w[_] == max_ or A_b[_] == max_:
@@ -77,3 +89,19 @@ class topsis():
                                columns=["S_w", "d_b", "d_w"])
 
         return ranking
+
+    def __check_params(self):
+        if isinstance(self.decision_matrix, pd.DataFrame) is False:
+            raise ValueError(
+                "The decision_matrix must be a two-dimensional pandas DataFrame.")
+
+        if isinstance(self.impact, list) is False:
+            raise ValueError(
+                "impact should be a string list: ['+', '-']"
+            )
+
+        impact = len(self.impact)
+        cl = self.decision_matrix.shape[1]
+        if impact != cl:
+            raise ValueError(
+                "impact length must be equal to the decision_matrix columns")
