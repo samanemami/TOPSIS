@@ -19,14 +19,14 @@ class topsis():
         n = self.decision_matrix.shape[1]
 
         if isinstance(self.decision_matrix, pd.DataFrame):
-            decision_matrix = decision_matrix.values
+            decision_matrix = self.decision_matrix.values
 
         divisors = np.empty(n)
         A_w = np.zeros(n)
         A_b = np.zeros(n)
 
         for i in range(n):
-            cl = self.decision_matrix[:, i]
+            cl = decision_matrix[:, i]
             divisors[i] = np.sqrt(cl @ cl)
 
             max_ = np.max(cl)
@@ -43,14 +43,14 @@ class topsis():
                 A_b[i] = min_
                 A_w[i] = max_
 
-        dm = (self.decision_matrix / divisors) * self.weight
+        dm = (decision_matrix / divisors) * self.weight
 
         return dm, A_w, A_b
 
     def _rank(self, data):
         ranks = rankdata(data).astype(np.int32)
         ranks -= 1
-        return self.decision_matrix.index[ranks]
+        return self.decision_matrix.index[ranks][::-1]
 
     def distance(self):
         m = self.decision_matrix.shape[0]
