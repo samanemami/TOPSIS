@@ -1,3 +1,5 @@
+""" TOPSIS """
+
 # Author: Seyedsaman Emami
 
 # Licence: GNU Lesser General Public License v2.1 (LGPL-2.1)
@@ -18,6 +20,8 @@ class topsis():
 
         Columns represent the criteria, and row indicates 
         the value of each option for different criteria.
+        
+        The data frame indexes (string) are the options.
 
     weight : ndarray of weights. 
         The shape should be the same as the matrix attributes.
@@ -108,8 +112,8 @@ class topsis():
         sw = self._rank(s_w)
 
         ranking = pd.DataFrame(data=zip(sw, db, dw),
-                               index=range(1, m+1),
-                               columns=["S_w", "d_b", "d_w"])
+                               index=['Rank_'+str(i) for i in range(m)],
+                               columns=["similarity", "best_distance", "worth_distance"])
 
         return ranking
 
