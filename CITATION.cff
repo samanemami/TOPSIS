@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use this package, please cite it as below."
+authors:
+- family-names: "Emami"
+  given-names: "Seyedsaman"
+  orcid: "https://orcid.org/0000-0002-6306-1180"
+title: "Technique for Order of Preference by Similarity to Ideal Solution"
+version: 0.0.1
+date-released: 2022-05-18
+url: "hhttps://github.com/samanemami/TOPSIS"
