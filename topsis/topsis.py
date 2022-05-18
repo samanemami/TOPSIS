@@ -20,7 +20,7 @@ class topsis():
 
         Columns represent the criteria, and row indicates 
         the value of each option for different criteria.
-        
+
         The data frame indexes (string) are the options.
 
     weight : ndarray of weights. 
@@ -112,7 +112,7 @@ class topsis():
         sw = self._rank(s_w)
 
         ranking = pd.DataFrame(data=zip(sw, db, dw),
-                               index=['Rank_'+str(i) for i in range(m)],
+                               index=['Rank_'+str(i+1) for i in range(m)],
                                columns=["similarity", "best_distance", "worth_distance"])
 
         return ranking
