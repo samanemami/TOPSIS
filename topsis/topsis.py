@@ -1,18 +1,40 @@
+# Author: Seyedsaman Emami
+
+# Licence: GNU Lesser General Public License v2.1 (LGPL-2.1)
+
+
 import numpy as np
 import pandas as pd
 from scipy.stats import rankdata
 
 
 class topsis():
+
+    """TOPSIS
+
+    Parameters
+    -----------
+    decision_matrix : 2-D dimensional Pandas DataFrame.
+
+        Columns represent the criteria, and row indicates 
+        the value of each option for different criteria.
+
+    weight : ndarray of weights. 
+        The shape should be the same as the matrix attributes.
+
+    impact : list, string.
+        A string list includes + and - items with 
+        the same attributes.
+
+    """
+
     def __init__(self,
                  decision_matrix,
                  weight,
-                 criteria,
                  impact):
 
         self.decision_matrix = decision_matrix
         self.weight = weight
-        self.criteria = criteria
         self.impact = impact
 
     def _decision_matrix(self):
@@ -54,7 +76,7 @@ class topsis():
     def rank(self):
 
         self.__check_params()
-
+        criteria = self.decision_matrix
         m = self.decision_matrix.shape[0]
         dm, A_w, A_b = self._decision_matrix()
         d_b = np.zeros(m)
@@ -66,14 +88,15 @@ class topsis():
         # and best alternative (A_b)
 
         # L2-distance
-        
+
         for i in range(m):
             d_b[i] = np.sqrt((dm[i] - A_b)**2)
             d_w[i] = np.sqrt((dm[i] - A_w)**2)
 
             # Compute the similarity to the worst state
-            max_, min_ = max(self.criteria), min(self.criteria)
-            for _ in range(A_b.shape[0]):
+            for _ in range(self.decision_matrix.shape[1]):
+                max_, min_ = criteria.iloc[:, _].max(
+                ), criteria.iloc[:, _].min()
                 if A_w[_] == max_ or A_b[_] == max_:
                     s_w[i] = 1
                 elif A_w[_] == min_ or A_b[_] == min_:
