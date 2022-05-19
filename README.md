@@ -88,8 +88,10 @@ This package takes advantage of the following libraries, which had already impor
 # Date-released
 2022-05-18
 
-## More about TOPSIS
-To read more about the TOPSIS method and the logic behind the model, please refer [here](https://samanemami.medium.com/multi-criteria-decision-making-topsis-c122925f89e4).
+## Related links
+[What is TOPSIS?](https://samanemami.medium.com/multi-criteria-decision-making-topsis-c122925f89e4).
+[wikipedia](https://en.wikipedia.org/wiki/TOPSIS).
+[A simple but powerful decision method](https://robertsoczewica.medium.com/what-is-topsis-b05c50b3cd05).
 
 # References
 [1] Hwang, Ching-Lai, and Kwangsun Yoon. “Methods for multiple attribute decision making.” Multiple attribute decision making. Springer, Berlin, Heidelberg, 1981. 58–191.
