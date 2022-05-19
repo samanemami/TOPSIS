@@ -13,6 +13,14 @@ After cloning the project then, the Python package:
 pip install .
 ```
 
+# Usage
+Using this TOPSIS implementation is straightforward as importing it and writing only two lines. The important thing is the decision matrix in the type of pandas data frame. 
+
+The decision matrix would be some data frame as the following example.
+
+![![alt text](https://github.com/GAA-UAM/GBNN/blob/main/doc/nn.png)](https://github.com/GAA-UAM/GBNN/blob/main/doc/nn.png)
+
+
 # Requirements
 This package takes advantage of the following libraries, which had already imported to the TOPSIS package:
 
