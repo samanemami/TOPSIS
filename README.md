@@ -7,11 +7,21 @@ If you use this package, please refer [cite](CITATION.cff).
 
 
 # Installation
-After cloning the project then, the Python package:
+## INSTALLING VIA PIP
+
+inbuilt Python package management system, pip. 
+You can can install, update, or delete the topsis2.
+
+### install
 
 ```bash
 pip install topsis2
 ```
+### update
+```pip
+pip install --upgrade topsis2
+```
+
 
 # Usage
 Using this TOPSIS implementation is straightforward as importing it and writing only two lines. The important thing is the decision matrix in the type of pandas data frame. 
