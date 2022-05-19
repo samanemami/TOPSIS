@@ -10,7 +10,7 @@ If you use this package, please refer [cite](CITATION.cff).
 After cloning the project then, the Python package:
 
 ```bash
-pip install .
+pip install topsis2
 ```
 
 # Usage
