@@ -52,7 +52,7 @@ tp = topsis(decision_matrix=decision_matrix,
             weight=weight, impact=impact)
 tp.rank()
 ```
-[[ranking](https://github.com/samanemami/TOPSIS/blob/main/doc/Ranking_matrix.png)
+[ranking]https://github.com/samanemami/TOPSIS/blob/main/doc/Ranking_matrix.png
 
 
 # Requirements
