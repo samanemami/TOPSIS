@@ -80,7 +80,7 @@ This package takes advantage of the following libraries, which had already impor
 `TOPSIS`, `MCDM`, `MADM`
 
 # Version
-0.0.1
+0.0.2
 
 # Updated
 2022-05-19
