@@ -35,10 +35,24 @@ weight = np.array([0.1, 0.7, 0.2])
 After having the three parameters, the model produces the ranking matrix.
 
 ```Python
+import numpy as np
+import pandas as pd
 from topsis import topsis
 
+array = np.random.randint(10, size=(5, 3))
 
+decision_matrix = pd.DataFrame(array, columns=[
+                               'criterion_' + str(i) for i in range(1, 4)],
+                               index=['option_'+str(i) for i in range(1, 6)])
+
+impact = ['+', '+', '-']
+weight = np.array([0.1, 0.7, 0.2])
+
+tp = topsis(decision_matrix=decision_matrix,
+            weight=weight, impact=impact)
+tp.rank()
 ```
+![![ranking](https://github.com/samanemami/TOPSIS/blob/main/doc/Ranking_matrix.png))]
 
 
 # Requirements
