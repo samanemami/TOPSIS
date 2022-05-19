@@ -20,6 +20,26 @@ The decision matrix would be some data frame as the following example.
 
 ![![DM](https://github.com/samanemami/TOPSIS/blob/main/doc/decision_matrix.png)](https://github.com/samanemami/TOPSIS/blob/main/doc/decision_matrix.png)
 
+After building your decision matrix, you need to define the criteria types (benefit or cost). To have the type, you can define a list as the impact. For instance, we assume that the first two criteria are benefit criteria and the last is the cost.
+
+```Python
+impact = ['+', '+', '-']
+```
+
+The ultimate step is assigning the weight array.
+
+```Python
+weight = np.array([0.1, 0.7, 0.2])
+```
+
+After having the three parameters, the model produces the ranking matrix.
+
+```Python
+from topsis import topsis
+
+
+```
+
 
 # Requirements
 This package takes advantage of the following libraries, which had already imported to the TOPSIS package:
