@@ -18,7 +18,7 @@ Using this TOPSIS implementation is straightforward as importing it and writing 
 
 The decision matrix would be some data frame as the following example.
 
-![![alt text](https://github.com/GAA-UAM/GBNN/blob/main/doc/nn.png)](https://github.com/GAA-UAM/GBNN/blob/main/doc/nn.png)
+![![DM](https://github.com/samanemami/TOPSIS/blob/main/doc/decision_matrix.png)](https://github.com/samanemami/TOPSIS/blob/main/doc/decision_matrix.png)
 
 
 # Requirements
