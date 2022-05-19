@@ -46,13 +46,13 @@ class topsis():
         decision_matrix = self.decision_matrix.values
         n = decision_matrix.shape[1]
 
-        divisors = np.empty(n)
+        div = np.zeros(n)
         A_w = np.zeros(n)
         A_b = np.zeros(n)
 
         for i in range(n):
             cl = decision_matrix[:, i]
-            divisors[i] = np.sqrt(cl @ cl)
+            div[i] = np.sqrt(np.sum(cl**2))
 
             max_ = np.max(cl)
             min_ = np.min(cl)
@@ -68,7 +68,7 @@ class topsis():
                 A_b[i] = min_
                 A_w[i] = max_
 
-        dm = (decision_matrix / divisors) * self.weight
+        dm = (decision_matrix / div) * self.weight
 
         return dm, A_w, A_b
 
@@ -94,8 +94,8 @@ class topsis():
         # L2-distance
 
         for i in range(m):
-            d_b[i] = np.sqrt((dm[i] - A_b)**2)
-            d_w[i] = np.sqrt((dm[i] - A_w)**2)
+            d_b[i] = np.sqrt(np.sum(dm[i] - A_b)**2)
+            d_w[i] = np.sqrt(np.sum(dm[i] - A_w)**2)
 
             # Compute the similarity to the worst state
             for _ in range(self.decision_matrix.shape[1]):
