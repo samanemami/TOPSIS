@@ -34,7 +34,7 @@ weight = np.array([0.1, 0.7, 0.2])
 
 After having the three parameters, the model produces the ranking matrix.
 
-```Python
+>>> ```Python
 import numpy as np
 import pandas as pd
 from topsis import topsis
