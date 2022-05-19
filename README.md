@@ -68,7 +68,7 @@ This package takes advantage of the following libraries, which had already impor
 0.0.1
 
 # Updated
-2022-05-18
+2022-05-19
 
 # Date-released
 2022-05-18
