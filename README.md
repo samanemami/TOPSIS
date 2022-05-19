@@ -1,5 +1,5 @@
 # TOPSIS
-Technique for Order of Preference by Similarity to Ideal Solution
+Technique for Order of Preference by Similarity to Ideal Solution [1]
 
 
 ## Citation 
@@ -90,3 +90,6 @@ This package takes advantage of the following libraries, which had already impor
 
 ## More about TOPSIS
 To read more about the TOPSIS method and the logic behind the model, please refer [here](https://samanemami.medium.com/multi-criteria-decision-making-topsis-c122925f89e4).
+
+# References
+[1] Hwang, Ching-Lai, and Kwangsun Yoon. “Methods for multiple attribute decision making.” Multiple attribute decision making. Springer, Berlin, Heidelberg, 1981. 58–191.
