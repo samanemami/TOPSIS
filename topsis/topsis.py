@@ -94,8 +94,8 @@ class topsis():
         # L2-distance
 
         for i in range(m):
-            d_b[i] = np.sqrt(np.sum(dm[i] - A_b)**2)
-            d_w[i] = np.sqrt(np.sum(dm[i] - A_w)**2)
+            d_b[i] = np.sqrt(np.sum((dm[i] - A_b)**2))
+            d_w[i] = np.sqrt(np.sum((dm[i] - A_w)**2))
 
             # Compute the similarity to the worst state
             for _ in range(self.decision_matrix.shape[1]):
