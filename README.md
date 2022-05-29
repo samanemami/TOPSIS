@@ -27,6 +27,18 @@ pip install --upgrade topsis2
 ```pip
 pip uninstall topsis2
 ```
+# Citation
+If you use this package, please [cite](CITATION.cff) it as below.
+```yaml
+References:
+    Type: API
+    Author:
+      - Seyedsaman Emami
+    Keywords:
+      - "TOPSIS"
+      - "Ranking"
+```
+
 
 # Usage
 Using this TOPSIS implementation is straightforward as importing it and writing only two lines. The important thing is the decision matrix in the type of pandas data frame. 
